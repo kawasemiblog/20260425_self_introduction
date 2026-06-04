@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>カモさわ | ポートフォリオ＆自己紹介</title>
+    <meta name="description" content="AIで積算を楽にするエンジニア・カモさわの自己紹介ポートフォリオページです。難しい言葉を分かりやすく解説し、相手に寄り添ったサービスを提供します。">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-decorations">
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+        <div class="circle circle-3"></div>
+    </div>
+
+    <div class="container">
+        <!-- ヘッダー -->
+        <header id="header" class="fade-in">
+            <div class="logo">Kamosawa</div>
+            <nav>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#hobbies" class="nav-link">Hobbies</a>
+            </nav>
+        </header>
+
+        <main>
+            <!-- 自己紹介セクション -->
+            <section id="about" class="about-section card fade-in">
+                <div class="profile-layout">
+                    <div class="avatar-wrapper">
+                        <img src="profile.jpg" alt="カモさわのプロフィール写真" class="avatar">
+                        <div class="avatar-ring"></div>
+                    </div>
+                    <div class="profile-info">
+                        <span class="badge">AI Estimating Engineer</span>
+                        <h1 class="name">カモさわ <span class="name-eng">Kamosawa</span></h1>
+                        <p class="bio">
+                            はじめまして、カモさわと申します。「AIで積算を楽にするエンジニア」として、建築や建設業界の業務効率化をサポートしています。専門的で難しい言葉を分かりやすく解説し、常にお客様一人ひとりに寄り添ったサービスを提供することを大切にしています。趣味は100kmウォークや登山で、困難な道のりも粘り強く進む精神力を日々の開発やサポートに活かしています。どうぞよろしくお願いいたします。
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 趣味セクション -->
+            <section id="hobbies" class="hobbies-section fade-in">
+                <h2 class="section-title">My Hobbies</h2>
+                <p class="section-subtitle">私の好きなこと、大切にしている時間</p>
+                
+                <div class="hobbies-grid">
+                    <!-- 趣味 1: 100kmウォーク -->
+                    <div class="hobby-card hover-trigger" data-hobby="walking">
+                        <div class="hobby-icon-wrapper reading-color">
+                            <!-- 靴 / ウォーキングのSVG -->
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="hobby-icon">
+                                <path d="M13.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM9.8 8.9L7 21.5h2.1l1.8-8 2.1 2v7.5h2v-9l-2.1-2 1.1-5.5c1.1 1.2 2.7 2 4.5 2V11c-1.8 0-3.3-.8-4.3-2l-1-5c-.3-.9-1.1-1.5-2-1.5-.7 0-1.3.3-1.7.8L4.6 7.6c-.4.5-.6 1.1-.6 1.8V15h2V9.4l3.8-2.3-.6 2.8-.2.7-.2.7z"/>
+                            </svg>
+                        </div>
+                        <h3>100kmウォーク</h3>
+                        <p>昼夜を問わず100kmの道のりを歩き抜きます。極限状態の中で自分と向き合い、ゴールした時の達成感は何物にも代えがたい経験です。</p>
+                    </div>
+
+                    <!-- 趣味 2: 登山 -->
+                    <div class="hobby-card hover-trigger" data-hobby="mountain">
+                        <div class="hobby-icon-wrapper movie-color">
+                            <!-- 山のSVG -->
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="hobby-icon">
+                                <path d="M14 6l-3.75 5 2.85 3.8-1.6 1.2C9.81 13.75 7 10 7 10l-6 8h22L14 6z"/>
+                            </svg>
+                        </div>
+                        <h3>登山</h3>
+                        <p>美しい山々を登り、自然の雄大さに触れることで心身をリフレッシュしています。頂上から眺める絶景は、新しい創造の源です。</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- フッター -->
+        <footer class="fade-in">
+            <p>&copy; 2026 Kamosawa. Created with love & gentle colors.</p>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

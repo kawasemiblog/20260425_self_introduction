@@ -1,0 +1,445 @@
+/* ==========================================================================
+   Design System & Custom Properties
+   ========================================================================== */
+:root {
+    /* Color Palette - Pastoral / Earthy */
+    --bg-gradient-start: #fbf8f3;
+    --bg-gradient-end: #f4ece1;
+    --text-primary: #3d342a;
+    --text-secondary: #5e5243;
+    --text-light: #8e7f6e;
+    
+    --card-bg: rgba(255, 254, 252, 0.9);
+    --card-border: rgba(222, 210, 195, 0.5);
+    --card-shadow: 0 15px 35px rgba(94, 82, 67, 0.08);
+    --card-shadow-hover: 0 25px 45px rgba(94, 82, 67, 0.15);
+
+    /* Earthy Highlights */
+    --accent-blue: #eef4ec;
+    --accent-blue-text: #4a6c40;
+    
+    --accent-orange: #fdf3eb;
+    --accent-orange-text: #b26c43;
+    
+    --accent-purple: #fcf2ec;
+    --accent-purple-text: #b26c43;
+
+    --badge-bg: #f5ece1;
+    --badge-text: #5e5243;
+
+    /* Fonts */
+    --font-main: 'Outfit', 'Noto Sans JP', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* ==========================================================================
+   Reset & Base Styles
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--text-primary);
+    background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    line-height: 1.8;
+    letter-spacing: 0.03em;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* 背景のやさしい装飾用の丸 */
+.background-decorations {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.4;
+    animation: float 20s infinite ease-in-out alternate;
+}
+
+.circle-1 {
+    width: 400px;
+    height: 400px;
+    background-color: #ebdcd0;
+    top: -10%;
+    right: -10%;
+    animation-delay: 0s;
+}
+
+.circle-2 {
+    width: 500px;
+    height: 500px;
+    background-color: #dbe4d8;
+    bottom: -15%;
+    left: -10%;
+    animation-delay: -5s;
+}
+
+.circle-3 {
+    width: 350px;
+    height: 350px;
+    background-color: #f7e9cc;
+    top: 40%;
+    left: 15%;
+    animation-delay: -10s;
+}
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    100% {
+        transform: translate(50px, 30px) scale(1.1);
+    }
+}
+
+/* ==========================================================================
+   Layout & Container
+   ========================================================================== */
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 32px 0;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: 0.05em;
+    font-family: 'Outfit', sans-serif;
+}
+
+nav {
+    display: flex;
+    gap: 24px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 0.95rem;
+    position: relative;
+    padding: 4px 0;
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--badge-text);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--badge-text);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* ==========================================================================
+   Common Component: Card (Glassmorphism)
+   ========================================================================== */
+.card {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--card-border);
+    border-radius: 24px;
+    box-shadow: var(--card-shadow);
+    padding: 48px;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), 
+                box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* ==========================================================================
+   About Section (Profile Card)
+   ========================================================================== */
+.about-section {
+    margin-bottom: 64px;
+}
+
+.profile-layout {
+    display: flex;
+    gap: 48px;
+    align-items: center;
+}
+
+.avatar-wrapper {
+    position: relative;
+    flex-shrink: 0;
+    width: 180px;
+    height: 180px;
+}
+
+.avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #fff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    position: relative;
+    z-index: 2;
+}
+
+.avatar-ring {
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    border-radius: 50%;
+    border: 2px dashed rgba(94, 82, 67, 0.25);
+    z-index: 1;
+    animation: rotate 30s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.profile-info {
+    flex-grow: 1;
+}
+
+.badge {
+    display: inline-block;
+    background-color: var(--badge-bg);
+    color: var(--badge-text);
+    padding: 4px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin-bottom: 16px;
+}
+
+.name {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--text-primary);
+}
+
+.name-eng {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--text-light);
+    margin-left: 8px;
+    font-family: 'Outfit', sans-serif;
+}
+
+.bio {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.85;
+}
+
+/* ==========================================================================
+   Hobbies Section
+   ========================================================================== */
+.hobbies-section {
+    margin-bottom: 80px;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    font-family: 'Outfit', sans-serif;
+}
+
+.section-subtitle {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    margin-bottom: 40px;
+}
+
+.hobbies-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.hobby-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 36px 24px;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                box-shadow 0.4s ease,
+                border-color 0.3s ease;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.hobby-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--card-shadow-hover);
+    border-color: rgba(255, 255, 255, 0.8);
+}
+
+.hobby-icon-wrapper {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 24px;
+    transition: transform 0.3s ease;
+}
+
+.hobby-card:hover .hobby-icon-wrapper {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.hobby-icon {
+    width: 28px;
+    height: 28px;
+}
+
+/* 趣味ごとの個別パステル配色 */
+.reading-color {
+    background-color: var(--accent-blue);
+    color: var(--accent-blue-text);
+}
+
+.cafe-color {
+    background-color: var(--accent-orange);
+    color: var(--accent-orange-text);
+}
+
+.movie-color {
+    background-color: var(--accent-purple);
+    color: var(--accent-purple-text);
+}
+
+.hobby-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+}
+
+.hobby-card p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+footer {
+    margin-top: auto;
+    padding: 40px 0;
+    text-align: center;
+    border-top: 1px solid rgba(94, 82, 67, 0.1);
+}
+
+footer p {
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+/* ==========================================================================
+   Animations
+   ========================================================================== */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   Responsive Styles
+   ========================================================================== */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 16px;
+    }
+    
+    header {
+        padding: 24px 0;
+    }
+    
+    .card {
+        padding: 32px 20px;
+    }
+    
+    .profile-layout {
+        flex-direction: column;
+        text-align: center;
+        gap: 24px;
+    }
+    
+    .name-eng {
+        display: block;
+        margin-left: 0;
+        margin-top: 4px;
+    }
+    
+    .hobbies-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .hobby-card {
+        padding: 28px 24px;
+    }
+}
