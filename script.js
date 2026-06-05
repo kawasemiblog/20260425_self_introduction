@@ -22,36 +22,39 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ==========================================
-    // 2. 趣味カードのクリックインタラクション
+    // 2. カード（趣味・食べ物）のクリックインタラクション
     // ==========================================
-    const hobbyCards = document.querySelectorAll('.hobby-card');
+    const cards = document.querySelectorAll('.hobby-card, .food-card');
     
-    // 趣味ごとの楽しい一言メッセージ
-    const hobbyMessages = {
+    // カードごとの楽しい一言メッセージ
+    const cardMessages = {
         walking: '🚶‍♂️ 次回は24時間以内の完歩を目指してトレーニング中です！',
-        mountain: '⛰️ 富士山をはじめ、四季折々の美しい名峰に挑戦しています。'
+        mountain: '⛰️ 富士山をはじめ、四季折々の美しい名峰に挑戦しています。',
+        hamburg: '🥩 粗挽き肉の手ごねハンバーグ！ジューシーで食べ応え抜群です。',
+        omurice: '🍳 とろっとろの半熟卵にデミグラスやケチャップを合わせるのが至福です。',
+        curry: '🍛 スパイスを調合して作るこだわりカレー！辛さは中辛が一番好きです。'
     };
 
-    hobbyCards.forEach(card => {
+    cards.forEach(card => {
         card.addEventListener('click', (e) => {
-            const hobbyType = card.getAttribute('data-hobby');
-            const message = hobbyMessages[hobbyType];
+            const cardType = card.getAttribute('data-hobby') || card.getAttribute('data-food');
+            const message = cardMessages[cardType];
 
             if (!message) return;
 
             // 既存の吹き出しがあれば削除する
-            const existingTooltip = card.querySelector('.hobby-tooltip');
+            const existingTooltip = card.querySelector('.card-tooltip');
             if (existingTooltip) {
                 existingTooltip.remove();
                 return;
             }
 
             // 他のカードの吹き出しもクリアする
-            document.querySelectorAll('.hobby-tooltip').forEach(tooltip => tooltip.remove());
+            document.querySelectorAll('.card-tooltip').forEach(tooltip => tooltip.remove());
 
             // 吹き出し（ツールチップ）の作成
             const tooltip = document.createElement('div');
-            tooltip.className = 'hobby-tooltip';
+            tooltip.className = 'card-tooltip';
             tooltip.textContent = message;
 
             // スタイリング用のインラインスタイル（またはCSSで定義しても良いが、手軽さと動的制御のために追加）
