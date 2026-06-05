@@ -498,6 +498,13 @@ footer p {
     
     header {
         padding: 24px 0;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px 24px;
+    }
+
+    nav {
+        gap: 16px;
     }
     
     .card {
@@ -509,23 +516,79 @@ footer p {
         text-align: center;
         gap: 24px;
     }
-    
-    .social-links {
-        justify-content: center;
+
+    .avatar-wrapper {
+        width: 140px;
+        height: 140px;
     }
     
+    .name {
+        font-size: 1.8rem;
+    }
+
     .name-eng {
         display: block;
         margin-left: 0;
         margin-top: 4px;
     }
+
+    .bio {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    .social-link {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
     
+    .section-title {
+        font-size: 1.6rem;
+    }
+
     .hobbies-grid, .foods-grid {
         grid-template-columns: 1fr;
         gap: 20px;
     }
 
     .hobby-card, .food-card {
-        padding: 28px 24px;
+        padding: 24px 16px;
+    }
+
+    .hobby-card h3, .food-card h3 {
+        font-size: 1.15rem;
+    }
+
+    .hobby-card p, .food-card p {
+        font-size: 0.9rem;
+    }
+
+    /* モバイル向け背景装飾サークルサイズ調整 */
+    .circle-1 {
+        width: 200px;
+        height: 200px;
+    }
+
+    .circle-2 {
+        width: 250px;
+        height: 250px;
+    }
+
+    .circle-3 {
+        width: 180px;
+        height: 180px;
+    }
+}
+
+/* 非常に狭い画面幅（スマホ縦持ち）向けの調整 */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
     }
 }
