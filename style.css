@@ -411,6 +411,55 @@ nav {
 }
 
 /* ==========================================================================
+   Social Links
+   ========================================================================== */
+.social-links {
+    display: flex;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+                background-color 0.3s ease,
+                color 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.x-link {
+    background-color: var(--badge-bg);
+    color: var(--badge-text);
+    border: 1px solid var(--card-border);
+}
+
+.x-link:hover {
+    background-color: #0f1419;
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(15, 20, 25, 0.2);
+    border-color: #0f1419;
+}
+
+.social-icon {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+    transition: transform 0.3s ease;
+}
+
+.social-link:hover .social-icon {
+    transform: scale(1.1);
+}
+
+/* ==========================================================================
    Footer
    ========================================================================== */
 footer {
@@ -459,6 +508,10 @@ footer p {
         flex-direction: column;
         text-align: center;
         gap: 24px;
+    }
+    
+    .social-links {
+        justify-content: center;
     }
     
     .name-eng {
